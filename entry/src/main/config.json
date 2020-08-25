@@ -1,0 +1,47 @@
+{
+  "app": {
+    "vendor": "watch",
+    "bundleName": "homeworkout.watch.hw",
+    "version": {
+      "code": 1,
+      "name": "1.0"
+    }
+  },
+  "deviceConfig": {
+    "default": {
+      "reqSdk": {
+        "compatible": "zsdk 1.0.0",
+        "target": "zsdk 1.0.0"
+      }
+    }
+  },
+  "module": {
+    "deviceType": [
+      "fitnessWatch"
+    ],
+    "abilities": [
+      {
+        "name": "default",
+        "icon": "$media:icon",
+        "label": "home2_watch",
+        "type": "page"
+      }
+    ],
+    "distro": {
+      "moduleType": "entry",
+      "deliveryWithInstall": true,
+      "moduleName": "entry"
+    },
+    "js": [
+      {
+        "pages": [
+          "pages/index/index",
+          "pages/ready/ready",
+          "pages/start/start",
+          "pages/rest/rest"
+        ],
+        "name": "default"
+      }
+    ]
+  }
+}

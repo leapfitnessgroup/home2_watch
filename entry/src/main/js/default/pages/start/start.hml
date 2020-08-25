@@ -1,0 +1,5 @@
+<div class="container">
+     <input type="button" class="button" value="{{startorpause}}" onclick="clickStartOrPause"></input>
+     <input type="button" class="button" value="{{back}}" onclick="clickBack"></input>
+     <input type="button" class="button" value="{{next}}" onclick="clickNext(this)"></input>
+</div>

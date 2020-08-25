@@ -1,0 +1,50 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+apply plugin: 'com.huawei.harmony.app'
+
+harmonyos {
+    signingConfigs {
+        release {
+            certpath file('E:/cers-3/homeworkout.watch.hw/homeworkout0820001.cer')
+            profile file('E:/cers-3/homeworkout.watch.hw/homeworkout.watch.hw_HarmonyAppProvision_debug.p7b')
+            signAlg 'SHA256withECDSA'
+            keyPassword '00000018167DD6F4AE2E788B2E3C6F8A33CFE62815280DE69CF395523211BBF1967F2A202354654D'
+            keyAlias 'homeworkout.watch.hw'
+            storePassword '0000001820BE1969ACF21D38137700EDD102AF16902B65520A04317FE3D3A61FD2340B905256080A'
+            storeFile file('E:/cers-3/homeworkout.watch.hw/my.jks')
+        }
+    }
+    compileSdkVersion 1
+    defaultConfig {
+        compatibleSdkVersion 1
+    }
+}
+
+buildscript {
+    repositories {
+        maven {
+            url 'http://repo.ark.tools.huawei.com/artifactory/maven-public/'
+        }
+        maven {
+            url 'https://mirrors.huaweicloud.com/repository/maven/'
+        }
+        maven {
+            url 'D:\\huawei\\studio'
+        }
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.huawei.harmony:hap:1.0.7.4'
+    }
+}
+
+allprojects {
+    repositories {
+        maven {
+            url 'http://repo.ark.tools.huawei.com/artifactory/maven-public/'
+        }
+        maven {
+            url 'https://mirrors.huaweicloud.com/repository/maven/'
+        }
+        jcenter()
+    }
+}
