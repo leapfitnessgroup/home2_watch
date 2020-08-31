@@ -35,10 +35,7 @@
     "js": [
       {
         "pages": [
-          "pages/index/index",
-          "pages/ready/ready",
-          "pages/start/start",
-          "pages/rest/rest"
+          "pages/index/index"
         ],
         "name": "default"
       }

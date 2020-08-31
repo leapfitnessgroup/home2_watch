@@ -1,0 +1,10 @@
+{
+  "strings": {
+    "not_start": "NOT\nSTARTED",
+    "skip": "SKIP",
+    "next": "NEXT",
+    "pause": "PAUSE",
+    "resume": "RESUME",
+    "finish": "FINISH"
+  }
+}

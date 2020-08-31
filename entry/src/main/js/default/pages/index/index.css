@@ -8,8 +8,42 @@
   width: 454px;
   height: 454px;
 }
-.button {
+.div {
+  width: 454px;
+  height: 454px;
+}
+.stack {
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   width: 200;
   height: 200;
+}
+.progress {
+  width: 200;
+  height: 200;
+  stroke-width: 20;
+  center-x: 100;
+  center-y: 100;
+  radius: 100;
+  total-angle: -360;
+  start-angle: 0;
+  color: dodgerblue;
+}
+.centerText {
+  align-items: center;
+  width: 200;
+  height: 200;
+}
+.text {
+  width: 200;
+  text-align: center;
+  font-size: 38px;
+}
+.button {
+  margin-top: 20;
+  width: 200;
+  height: 120;
+  font-size: 38px;
 }
 

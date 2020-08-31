@@ -1,3 +1,22 @@
-<div class="container">
-     <input type="button" class="button"  value="{{start}}" onclick="clickStart"></input>
-</div>
+<stack class="div">
+     <div  class="container">
+          <stack class="stack" show="{{showTotal}}" >
+               <stack class="stack" show="{{showCycle}}">
+                    <div class="centerText">
+                         <text class="text"> {{timeText}}</text>
+                    </div>
+                    <progress  type="arc" class="progress" percent="{{process}}"></progress>
+               </stack>
+
+               <div class="centerText" show="{{showTimes}}">
+                    <text class="text" > {{times}}</text>
+               </div>
+          </stack>
+
+          <input type="button" class="button" value="{{buttonText}}" onclick="clickButton"></input>
+     </div>
+
+     <div class="container" show="{{showText}}">
+          <text class="text">{{$t('strings.not_start')}}</text>
+     </div>
+</stack>

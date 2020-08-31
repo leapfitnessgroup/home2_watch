@@ -1,11 +1,153 @@
 import router from '@system.router';
+import brightness from '@system.brightness';
+
 export default{
     data: {
-        start: "start"
+        timeText: "00:00",
+        time: 0,
+        times: 'x0',
+        totalTime: 0,
+        process: 0,
+        text: '',
+        buttonText: '',
+        showCycle: false,
+        showTimes: false,
+        showTotal: false,
+        showText: true,
     },
-    clickStart(){
-        router.replace({
-            uri : "pages/ready/ready"
-        })
-    }
+    onInit: function() {
+        this.testSetBrightnessKeepScreenOn();
+        this.getMsg();
+    },
+    testSetBrightnessKeepScreenOn: function() {
+        var self = this;
+
+        brightness.setKeepScreenOn({
+            keepScreenOn: true,
+            success: function() {
+            },
+            fail: function(data, code) {
+            }
+        });
+    },
+    getMsg: function() {
+        var self = this;
+
+        FeatureAbility.subscribeMsg({
+            success: function(data) {
+                if(JSON.stringify(data.message) !== undefined){
+                    self.showTotalFun(self);
+
+                    var json = JSON.parse(data.message);
+                    if('time' in json){
+
+                        self.showCycleFun(self);
+                        self.time = parseInt(json.time);
+                        self.totalTime = parseInt(json.totalTime);
+                        self.process = (1.0 - self.time / self.totalTime) * 100;
+                        self.timeText = self.convertedTime(self.time);
+
+                        if(self.text === 'next'){
+                            self.showTimesFun(self);
+                            self.times = 'x' + json.totalTime;
+                        }
+
+                        console.log('getmsg success time: ' + self.time + '|' + self.totalTime + '|' + self.process);
+                    }else if ('msg' in json){
+                        self.text = json.msg;
+
+                         if (self.text === 'next') {
+                            self.showTimesFun(self);
+                        }else{
+                            self.showCycleFun(self);
+                        }
+
+                        self.buttonText = self.changeTextFun(self);
+                        console.log('getmsg success text: ' + self.text);
+                    }
+
+                    self.showTextFun(self);
+
+                }else {
+                    console.log('getmsg undefined');
+                }
+            },
+            fail: function(data, code) {
+                console.log('getmsg fail: ' + code);
+            }
+        });
+    },
+    showTotalFun: function(self){
+        if(self.showTotal === false){
+            self.showTotal = true;
+            self.showText = false;
+        }
+    },
+    showCycleFun: function(self){
+        if(self.showCycle === false){
+            self.showCycle = true;
+            self.showTimes = false;
+        }
+    },
+    showTimesFun: function(self){
+        if(self.showTimes === false){
+            self.showTimes = true;
+            self.showCycle = false;
+        }
+    },
+    showTextFun: function(self){
+        if(self.text === 'finish'){
+            if(self.showTotal === true){
+                self.showCycle = false;
+                self.showTimes = false;
+                self.showTotal = false;
+                self.showText = true;
+            }
+        }
+    },
+    changeTextFun: function(self){
+        switch(self.text){
+            case 'next': return self.$t('strings.next');
+            case 'skip': return self.$t('strings.skip');
+            case 'pause': return self.$t('strings.pause');
+            case 'resume': return self.$t('strings.resume');
+            case 'finish': return self.$t('strings.finish');
+        }
+    },
+    clickButton: function(){
+        if(this.text === 'resume' || this.text === 'pause' || this.text === 'skip' || this.text === 'next'){
+            this.sendMsg();
+        }
+    },
+    sendMsg: function(){
+        let self = this;
+
+        FeatureAbility.sendMsg({
+            deviceId : 'remote',
+            bundleName: 'homeworkout.homeworkouts.noequipment',
+            abilityName: 'homeworkout.homeworkouts.noequipment',
+            message: self.text,
+            success: function(data) {
+                console.info('success sendMsg');
+            },
+            fail: function(data, code) {
+                console.info('fail sendMsg');
+            }
+        });
+    },
+    convertedTime: function(time){
+        var min = "00";
+        var sec = "00";
+        if(parseInt(time / 60) < 10){
+            min = "0" + parseInt(time / 60);
+        }else{
+            min = "" + parseInt(time / 60);
+        }
+        if(time % 60 < 10){
+            sec = "0" + (time % 60);
+        }else{
+            sec = "" + (time % 60);
+        }
+        return min + ":" + sec
+    },
 }
