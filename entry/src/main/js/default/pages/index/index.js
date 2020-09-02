@@ -19,6 +19,9 @@ export default{
         this.testSetBrightnessKeepScreenOn();
         this.getMsg();
     },
+    onDestroy: function() {
+        FeatureAbility.unsubscribeMsg();
+    },
     testSetBrightnessKeepScreenOn: function() {
         var self = this;
 
