@@ -2,21 +2,21 @@ apply plugin: 'com.huawei.harmony.hap'
 harmonyos {
     signingConfigs {
         debug {
-            certpath file('E:/cers-3/homeworkout.watch.hw/homeworkout0820001.cer')
-            profile file('E:/cers-3/homeworkout.watch.hw/homeworkout.watch.hw_HarmonyAppProvision_debug.p7b')
+            certpath file('E:/cers-3/homeworkout.watch.hw/homeworkout.watch.hw.cer')
+            profile file('E:/cers-3/homeworkout.watch.hw/homeworkout.watch.hwDebug.p7b')
             signAlg 'SHA256withECDSA'
-            keyPassword '000000181F11561C4F9B44FCE4FA594ACC32DF15A57E5AB540450B0B93386A4116C185C2CDD94F48'
+            keyPassword '000000183D59C1F8B9565073B8CF32644AF010F988BC454FF3D129D14C9736EBCC950FDD7ADBF798'
             keyAlias 'homeworkout.watch.hw'
-            storePassword '00000018C4079D6315B3EEBE98A7C6E3C796009958FF0C1F1058A8DCF944CDEFBBD9EFEDB2464E38'
+            storePassword '000000188369A6370EC6D08D40AF10F8CB6AF8C7A62DCE5C1905128FF201FB97C39F9E1FFC5923A9'
             storeFile file('E:/cers-3/homeworkout.watch.hw/my.jks')
         }
         release {
-            certpath file('E:/cers-3/homeworkout.watch.hw/homeworkout0820001.cer')
-            profile file('E:/cers-3/homeworkout.watch.hw/homeworkout.watch.hw_HarmonyAppProvision_debug.p7b')
+            certpath file('E:/cers-3/homeworkout.watch.hw/homeworkout.watch.hw.cer')
+            profile file('E:/cers-3/homeworkout.watch.hw/homeworkout.watch.hwDebug.p7b')
             signAlg 'SHA256withECDSA'
-            keyPassword '0000001823D7F6ECA56E47E58642A232825C9F0175A6B7F00A79F9F0E150E4EB4626919E91E80E38'
+            keyPassword '00000018487A033E5925A857C610CABF18FA9C7CF2A89494405E8A3884D63E07127B120E3196F567'
             keyAlias 'homeworkout.watch.hw'
-            storePassword '00000018E0A8F80D924919870436D522D9A9DC8EFAA3A6E4A78C6B61AA86BBAA6A4EE259B4789AB1'
+            storePassword '00000018A25CD9BC66CC1B23914A2A28E9D608FC13534C6B49B2C323BB14CB15D6545EDA06970352'
             storeFile file('E:/cers-3/homeworkout.watch.hw/my.jks')
         }
     }

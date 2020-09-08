@@ -4,12 +4,12 @@ apply plugin: 'com.huawei.harmony.app'
 harmonyos {
     signingConfigs {
         release {
-            certpath file('E:/cers-3/homeworkout.watch.hw/homeworkout0820001.cer')
-            profile file('E:/cers-3/homeworkout.watch.hw/homeworkout.watch.hw_HarmonyAppProvision_debug.p7b')
+            certpath file('E:/cers-3/homeworkout.watch.hw/homeworkout.watch.hw.cer')
+            profile file('E:/cers-3/homeworkout.watch.hw/homeworkout.watch.hwDebug.p7b')
             signAlg 'SHA256withECDSA'
-            keyPassword '00000018167DD6F4AE2E788B2E3C6F8A33CFE62815280DE69CF395523211BBF1967F2A202354654D'
+            keyPassword '000000189D162B4E4270EBC6E0C4129533BEC787EC97B02E39202169AF781098B4F0210B21C0F9B1'
             keyAlias 'homeworkout.watch.hw'
-            storePassword '0000001820BE1969ACF21D38137700EDD102AF16902B65520A04317FE3D3A61FD2340B905256080A'
+            storePassword '00000018F4992094599415BD0040EDFBAC63D5C63B9E23D3CE1B8639B056FDAD6104B0F04382D52B'
             storeFile file('E:/cers-3/homeworkout.watch.hw/my.jks')
         }
     }
