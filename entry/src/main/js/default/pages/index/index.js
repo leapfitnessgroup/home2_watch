@@ -44,15 +44,16 @@ export default{
                     var json = JSON.parse(data.message);
                     if('time' in json){
 
-                        self.showCycleFun(self);
                         self.time = parseInt(json.time);
                         self.totalTime = parseInt(json.totalTime);
                         self.process = (1.0 - self.time / self.totalTime) * 100;
                         self.timeText = self.convertedTime(self.time);
 
-                        if(self.text === 'next'){
-                            self.showTimesFun(self);
+                        if(self.text === 'next' && self.time === 0){
                             self.times = 'x' + json.totalTime;
+                            self.showTimesFun(self);
+                        }else{
+                            self.showCycleFun(self);
                         }
 
                         console.log('getmsg success time: ' + self.time + '|' + self.totalTime + '|' + self.process);
