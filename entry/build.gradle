@@ -1,5 +1,5 @@
-apply plugin: 'com.huawei.harmony.hap'
-harmonyos {
+apply plugin: 'com.huawei.ohos.hap'
+ohos {
     signingConfigs {
         debug {
             certpath file('E:/cers-3/homeworkout.watch.hw/homeworkout.watch.hw.cer')
@@ -20,9 +20,9 @@ harmonyos {
             storeFile file('E:/cers-3/homeworkout.watch.hw/my.jks')
         }
     }
-    compileSdkVersion 1
+    compileSdkVersion 3
     defaultConfig {
-        compatibleSdkVersion 1
+        compatibleSdkVersion 3
     }
 }
 sourceSets{

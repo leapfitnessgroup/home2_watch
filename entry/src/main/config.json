@@ -7,17 +7,16 @@
       "name": "1.0"
     }
   },
+  "apiVersion" :{
+    "compatible": 3,
+    "target": 3
+  },
+
   "deviceConfig": {
-    "default": {
-      "reqSdk": {
-        "compatible": "zsdk 1.0.0",
-        "target": "zsdk 1.0.0"
-      }
-    }
   },
   "module": {
     "deviceType": [
-      "fitnessWatch"
+      "liteWearable"
     ],
     "abilities": [
       {
