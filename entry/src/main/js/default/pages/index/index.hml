@@ -1,4 +1,4 @@
-<stack class="div">
+<stack class="div" onswipe = "touchMove">
      <div  class="container">
           <stack class="stack" show="{{showTotal}}" >
                <stack class="stack" show="{{showCycle}}">

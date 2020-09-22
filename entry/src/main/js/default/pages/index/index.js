@@ -1,5 +1,6 @@
 import router from '@system.router';
 import brightness from '@system.brightness';
+import app from '@system.app';
 
 export default{
     data: {
@@ -154,4 +155,9 @@ export default{
         }
         return min + ":" + sec
     },
+    touchMove: function(e){
+        if(e.direction === "right"){
+            app.terminate();
+        }
+    }
 }

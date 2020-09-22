@@ -7,10 +7,10 @@ ohos {
             certpath file('E:/cers-3/homeworkout.watch.hw/homeworkout.watch.hw.cer')
             profile file('E:/cers-3/homeworkout.watch.hw/homeworkout.watch.hwDebug.p7b')
             signAlg 'SHA256withECDSA'
-            keyPassword '000000189D162B4E4270EBC6E0C4129533BEC787EC97B02E39202169AF781098B4F0210B21C0F9B1'
+            keyPassword '00000018A65F05CDFF8B9D42DFFEE7790E6EDB155B871F8738F85B51F142EDF41D98836BE714692B'
             keyAlias 'homeworkout.watch.hw'
-            storePassword '00000018F4992094599415BD0040EDFBAC63D5C63B9E23D3CE1B8639B056FDAD6104B0F04382D52B'
-            storeFile file('E:/cers-3/homeworkout.watch.hw/my.jks')
+            storePassword '00000018A2782AAA9E934197EF7CEF485EB95EE763264F0B93C1505DB1090C78298F2C7D23D1797B'
+            storeFile file('E:/cers-3/homeworkout.watch.hw/my.p12')
         }
     }
     compileSdkVersion 3
@@ -22,28 +22,25 @@ ohos {
 buildscript {
     repositories {
         maven {
-            url 'http://repo.ark.tools.huawei.com/artifactory/maven-public/'
-        }
-        maven {
             url 'https://mirrors.huaweicloud.com/repository/maven/'
         }
         maven {
-            url 'D:\\huawei\\studio'
+            url 'https://developer.huawei.com/repo/'
         }
         jcenter()
     }
     dependencies {
-        classpath 'com.huawei.harmony:hap:2.0.0.6'
+        classpath 'com.huawei.ohos:hap:2.0.0.6'
     }
 }
 
 allprojects {
     repositories {
         maven {
-            url 'http://repo.ark.tools.huawei.com/artifactory/maven-public/'
+            url 'https://mirrors.huaweicloud.com/repository/maven/'
         }
         maven {
-            url 'https://mirrors.huaweicloud.com/repository/maven/'
+            url 'https://developer.huawei.com/repo/'
         }
         jcenter()
     }

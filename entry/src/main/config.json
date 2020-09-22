@@ -5,15 +5,12 @@
     "version": {
       "code": 1,
       "name": "1.0"
+    },  "apiVersion" : {
+      "compatible": 3,
+      "target": 3
     }
   },
-  "apiVersion" :{
-    "compatible": 3,
-    "target": 3
-  },
-
-  "deviceConfig": {
-  },
+  "deviceConfig": {},
   "module": {
     "deviceType": [
       "liteWearable"

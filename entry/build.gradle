@@ -5,19 +5,19 @@ ohos {
             certpath file('E:/cers-3/homeworkout.watch.hw/homeworkout.watch.hw.cer')
             profile file('E:/cers-3/homeworkout.watch.hw/homeworkout.watch.hwDebug.p7b')
             signAlg 'SHA256withECDSA'
-            keyPassword '000000183D59C1F8B9565073B8CF32644AF010F988BC454FF3D129D14C9736EBCC950FDD7ADBF798'
+            keyPassword '00000018A6C2727077B599CCE230E9D2E4E0EEF84C84DB69C8ED059F48CC5B6EF4266FFA5BB260FA'
             keyAlias 'homeworkout.watch.hw'
-            storePassword '000000188369A6370EC6D08D40AF10F8CB6AF8C7A62DCE5C1905128FF201FB97C39F9E1FFC5923A9'
-            storeFile file('E:/cers-3/homeworkout.watch.hw/my.jks')
+            storePassword '00000018627B06EB1200CEFC1111345D056879834023988E2633B0F9DFD589A7EDA4DFE10C40F89C'
+            storeFile file('E:/cers-3/homeworkout.watch.hw/my.p12')
         }
         release {
             certpath file('E:/cers-3/homeworkout.watch.hw/homeworkout.watch.hw.cer')
             profile file('E:/cers-3/homeworkout.watch.hw/homeworkout.watch.hwDebug.p7b')
             signAlg 'SHA256withECDSA'
-            keyPassword '00000018487A033E5925A857C610CABF18FA9C7CF2A89494405E8A3884D63E07127B120E3196F567'
+            keyPassword '00000018DBE3949B024F6C6DFDFFF5EDE4E9F0B86ACC5062634BF0D85FCE2DCA06B09883E98C3A0E'
             keyAlias 'homeworkout.watch.hw'
-            storePassword '00000018A25CD9BC66CC1B23914A2A28E9D608FC13534C6B49B2C323BB14CB15D6545EDA06970352'
-            storeFile file('E:/cers-3/homeworkout.watch.hw/my.jks')
+            storePassword '00000018EC1524EE919BEE90F419FC895A44D2E0B13511447BBF95C235D647A068B86E2E8AD79AE9'
+            storeFile file('E:/cers-3/homeworkout.watch.hw/my.p12')
         }
     }
     compileSdkVersion 3
