@@ -44,29 +44,17 @@ export default{
 
                     var json = JSON.parse(data.message);
                     if('time' in json){
-
                         self.time = parseInt(json.time);
                         self.totalTime = parseInt(json.totalTime);
-                        self.process = (1.0 - self.time / self.totalTime) * 100;
+                        self.process = (1.0 - (self.time - 1) / self.totalTime) * 100;
                         self.timeText = self.convertedTime(self.time);
-
-                        if(self.text === 'next' && self.time === 0){
-                            self.times = 'x' + json.totalTime;
-                            self.showTimesFun(self);
-                        }else{
-                            self.showCycleFun(self);
-                        }
-
+                        self.showCycleFun(self);
                         console.log('getmsg success time: ' + self.time + '|' + self.totalTime + '|' + self.process);
+                    }else if ('totalTime' in json){
+                        self.times = 'x' + json.totalTime;
+                        self.showTimesFun(self);
                     }else if ('msg' in json){
                         self.text = json.msg;
-
-                         if (self.text === 'next') {
-                            self.showTimesFun(self);
-                        }else{
-                            self.showCycleFun(self);
-                        }
-
                         self.buttonText = self.changeTextFun(self);
                         console.log('getmsg success text: ' + self.text);
                     }
