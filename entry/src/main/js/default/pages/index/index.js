@@ -60,7 +60,9 @@ export default{
                     }
 
                     self.showTextFun(self);
-
+                    if (self.text === 'exit') {
+                        app.terminate();
+                    }
                 }else {
                     console.log('getmsg undefined');
                 }
