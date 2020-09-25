@@ -16,16 +16,22 @@ export default{
         showTotal: false,
         showText: true,
     },
-    onInit: function() {
-        this.testSetBrightnessKeepScreenOn();
+    onReady: function() {
+        this.setBrightnessKeepScreenOn();
         this.getMsg();
+    },
+    onShow: function () {
+        let _this = this;
+        //保持屏幕常亮
+        _this.setBrightnessKeepScreenOn();
+        var timer = setInterval(function () {
+            _this.setBrightnessKeepScreenOn();
+        },3 * 60 * 1000);
     },
     onDestroy: function() {
         FeatureAbility.unsubscribeMsg();
     },
-    testSetBrightnessKeepScreenOn: function() {
-        var self = this;
-
+    setBrightnessKeepScreenOn: function() {
         brightness.setKeepScreenOn({
             keepScreenOn: true,
             success: function() {
@@ -66,6 +72,7 @@ export default{
                 }else {
                     console.log('getmsg undefined');
                 }
+                this.setBrightnessKeepScreenOn();
             },
             fail: function(data, code) {
                 console.log('getmsg fail: ' + code);
@@ -113,6 +120,7 @@ export default{
         if(this.text === 'resume' || this.text === 'pause' || this.text === 'skip' || this.text === 'next'){
             this.sendMsg();
         }
+        this.setBrightnessKeepScreenOn();
     },
     sendMsg: function(){
         let self = this;
@@ -129,6 +137,7 @@ export default{
                 console.info('fail sendMsg');
             }
         });
+        this.setBrightnessKeepScreenOn();
     },
     convertedTime: function(time){
         var min = "00";
