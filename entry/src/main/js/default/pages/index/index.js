@@ -72,7 +72,7 @@ export default{
                 }else {
                     console.log('getmsg undefined');
                 }
-                this.setBrightnessKeepScreenOn();
+                self.setBrightnessKeepScreenOn();
             },
             fail: function(data, code) {
                 console.log('getmsg fail: ' + code);
@@ -137,7 +137,6 @@ export default{
                 console.info('fail sendMsg');
             }
         });
-        this.setBrightnessKeepScreenOn();
     },
     convertedTime: function(time){
         var min = "00";
