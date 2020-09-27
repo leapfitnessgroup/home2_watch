@@ -5,6 +5,7 @@
     "next": "NEXT",
     "pause": "PAUSE",
     "resume": "RESUME",
-    "finish": "FINISH"
+    "finish": "FINISH",
+    "wait": "PLEASE RETURN TO THE TRAINING PAGE"
   }
 }

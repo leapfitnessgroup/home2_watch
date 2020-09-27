@@ -11,12 +11,14 @@ export default{
         process: 0,
         text: '',
         buttonText: '',
+        notStartText: '',
         showCycle: false,
         showTimes: false,
         showTotal: false,
         showText: true,
     },
     onReady: function() {
+        this.notStartText = this.$t('strings.not_start');
         this.setBrightnessKeepScreenOn();
         this.getMsg();
     },
@@ -99,7 +101,17 @@ export default{
     },
     showTextFun: function(self){
         if(self.text === 'finish'){
-            if(self.showTotal === true){
+            self.notStartText = self.$t('strings.not_start');
+            if(self.showTotal === true && self.showText === false){
+                self.showCycle = false;
+                self.showTimes = false;
+                self.showTotal = false;
+                self.showText = true;
+            }
+        }
+        if (self.text === 'wait') {
+            self.notStartText = self.$t('strings.wait');
+            if(self.showTotal === true && self.showText === false){
                 self.showCycle = false;
                 self.showTimes = false;
                 self.showTotal = false;

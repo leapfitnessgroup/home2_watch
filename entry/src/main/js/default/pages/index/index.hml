@@ -17,6 +17,6 @@
      </div>
 
      <div class="container" show="{{showText}}">
-          <text class="text">{{$t('strings.not_start')}}</text>
+          <text class="text">{{notStartText}}</text>
      </div>
 </stack>
