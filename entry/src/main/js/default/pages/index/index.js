@@ -17,8 +17,10 @@ export default{
         showTotal: false,
         showText: true,
     },
-    onReady: function() {
+    onInit: function () {
         this.notStartText = this.$t('strings.not_start');
+    },
+    onReady: function() {
         this.setBrightnessKeepScreenOn();
         this.getMsg();
     },
