@@ -18,11 +18,11 @@ export default{
         showText: true,
     },
     onInit: function () {
-        this.notStartText = this.$t('strings.not_start');
+        this.notStartText = this.$t('strings.open_app');
+        this.getMsg();
     },
     onReady: function() {
         this.setBrightnessKeepScreenOn();
-        this.getMsg();
     },
     onShow: function () {
         let _this = this;
@@ -113,6 +113,15 @@ export default{
         }
         if (self.text === 'wait') {
             self.notStartText = self.$t('strings.wait');
+            if(self.showTotal === true && self.showText === false){
+                self.showCycle = false;
+                self.showTimes = false;
+                self.showTotal = false;
+                self.showText = true;
+            }
+        }
+        if (self.text === 'open') {
+            self.notStartText = self.$t('strings.not_start');
             if(self.showTotal === true && self.showText === false){
                 self.showCycle = false;
                 self.showTimes = false;

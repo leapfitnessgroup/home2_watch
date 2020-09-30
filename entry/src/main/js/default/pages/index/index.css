@@ -46,4 +46,11 @@
   height: 120;
   font-size: 38px;
 }
+.fullText {
+  width: 300;
+  height: 250;
+  justify-content: center;
+  text-align: center;
+  font-size: 38px;
+}
 

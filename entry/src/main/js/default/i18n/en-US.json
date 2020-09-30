@@ -1,11 +1,12 @@
 {
   "strings": {
-    "not_start": "NOT\nSTARTED",
+    "not_start": "Haven't started exercising\n^_^",
     "skip": "SKIP",
     "next": "NEXT",
     "pause": "PAUSE",
     "resume": "RESUME",
     "finish": "FINISH",
-    "wait": "PLEASE RETURN TO THE TRAINING PAGE"
+    "wait": "Please Return to the traing page\n^_^",
+    "open_app": "Please open home workout app on the phone\n^_^"
   }
 }

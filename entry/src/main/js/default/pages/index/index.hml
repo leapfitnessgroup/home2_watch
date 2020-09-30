@@ -17,6 +17,6 @@
      </div>
 
      <div class="container" show="{{showText}}">
-          <text class="text">{{notStartText}}</text>
+          <text class="fullText">{{notStartText}}</text>
      </div>
 </stack>
