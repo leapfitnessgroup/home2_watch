@@ -5,8 +5,8 @@
     "next": "NEXT",
     "pause": "PAUSE",
     "resume": "RESUME",
-    "finish": "FINISH",
-    "wait": "Please Return to the traing page\n^_^",
-    "open_app": "Please open home workout app on the phone\n^_^"
+    "finish": "Great, you have completed the challenge\n^_^",
+    "wait": "Please return to the training page\n^_^",
+    "open_app": "Please open Home Workout app on the phone\n^_^"
   }
 }

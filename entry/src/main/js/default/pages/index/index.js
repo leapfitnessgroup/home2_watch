@@ -103,7 +103,7 @@ export default{
     },
     showTextFun: function(self){
         if(self.text === 'finish'){
-            self.notStartText = self.$t('strings.not_start');
+            self.notStartText = self.$t('strings.finish');
             if(self.showTotal === true && self.showText === false){
                 self.showCycle = false;
                 self.showTimes = false;
@@ -136,7 +136,6 @@ export default{
             case 'skip': return self.$t('strings.skip');
             case 'pause': return self.$t('strings.pause');
             case 'resume': return self.$t('strings.resume');
-            case 'finish': return self.$t('strings.finish');
         }
     },
     clickButton: function(){
