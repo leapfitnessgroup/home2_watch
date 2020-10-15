@@ -53,4 +53,14 @@
   text-align: center;
   font-size: 38px;
 }
+.SCText {
+  width: 300;
+  text-align: center;
+}
+.imgSC {
+  width:200;
+  height:200;
+  margin-top:40;
+  margin-bottom:20;
+}
 

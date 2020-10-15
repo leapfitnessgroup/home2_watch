@@ -1,22 +1,32 @@
 <stack class="div" onswipe = "touchMove">
-     <div  class="container">
-          <stack class="stack" show="{{showTotal}}" >
-               <stack class="stack" show="{{showCycle}}">
-                    <div class="centerText">
-                         <text class="text"> {{timeText}}</text>
+
+     <div class="container" show="{{showSC}}">
+          <image class="imgSC" src="/common/home2QR.png"/>
+          <text class="SCText">{{$t('strings.download_app')}}</text>
+     </div>
+
+     <stack class="div" show="{{hideSC}}">
+          <div  class="container">
+               <stack class="stack" show="{{showTotal}}" >
+                    <stack class="stack" show="{{showCycle}}">
+                         <div class="centerText">
+                              <text class="text"> {{timeText}}</text>
+                         </div>
+                         <progress  type="arc" class="progress" percent="{{process}}"></progress>
+                    </stack>
+
+                    <div class="centerText" show="{{showTimes}}">
+                         <text class="text" > {{times}}</text>
                     </div>
-                    <progress  type="arc" class="progress" percent="{{process}}"></progress>
                </stack>
 
-               <div class="centerText" show="{{showTimes}}">
-                    <text class="text" > {{times}}</text>
-               </div>
-          </stack>
+               <input type="button" class="button" value="{{buttonText}}" onclick="clickButton"></input>
+          </div>
 
-          <input type="button" class="button" value="{{buttonText}}" onclick="clickButton"></input>
-     </div>
+          <div class="container" show="{{showText}}">
+               <text class="fullText">{{notStartText}}</text>
+          </div>
 
-     <div class="container" show="{{showText}}">
-          <text class="fullText">{{notStartText}}</text>
-     </div>
+     </stack>
+
 </stack>

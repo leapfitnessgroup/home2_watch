@@ -1,6 +1,7 @@
 import router from '@system.router';
 import brightness from '@system.brightness';
 import app from '@system.app';
+import {P2pClient, Message, Builder} from "../wearengine"
 
 export default{
     data: {
@@ -16,8 +17,11 @@ export default{
         showTimes: false,
         showTotal: false,
         showText: true,
+        showSC: false,
+        hideSC: false,
     },
     onInit: function () {
+        this.ping(this);
         this.notStartText = this.$t('strings.open_app');
         this.getMsg();
     },
@@ -50,6 +54,7 @@ export default{
         FeatureAbility.subscribeMsg({
             success: function(data) {
                 if(JSON.stringify(data.message) !== undefined){
+                    self.showScanCodePage(self, false);
                     self.showTotalFun(self);
 
                     var json = JSON.parse(data.message);
@@ -76,7 +81,6 @@ export default{
                 }else {
                     console.log('getmsg undefined');
                 }
-                self.setBrightnessKeepScreenOn();
             },
             fail: function(data, code) {
                 console.log('getmsg fail: ' + code);
@@ -179,5 +183,35 @@ export default{
         if(e.direction === "right"){
             app.terminate();
         }
+    },
+    ping: function (self) {
+
+        // 步骤1：创建点对点通信对象
+        var p2pClient = new P2pClient();
+        var peerPkgName = 'homeworkout.homeworkouts.noequipment';
+        var peerFinger = '46F848490B6171ECDC15946E999D2A66EC1F410A2DC955E00D9A5552221DAD0B';
+
+        // 步骤2：设置需要通信的手机侧对应的三方应用包名
+        p2pClient.setPeerPkgName(peerPkgName);
+        p2pClient.setPeerFingerPrint(peerFinger);
+
+        // 步骤3：检测手机侧对应的第三方应用是否在线
+        p2pClient.ping({
+            onSuccess: function() {
+                self.showScanCodePage(self, false);
+                console.log('ping success');
+            },
+            onFailure: function() {
+                self.showScanCodePage(self, true);
+                console.log('ping failed');
+            },
+            onPingResult: function(resultCode) {
+                console.log('ping PingResult: ' + resultCode.data + resultCode.code);
+            },
+        });
+    },
+    showScanCodePage: function (self, show) {
+        self.showSC = show;
+        self.hideSC = !show;
     }
 }

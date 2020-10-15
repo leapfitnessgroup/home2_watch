@@ -1,12 +1,13 @@
 {
   "strings": {
-    "not_start": "Haven't Started Exercising\n^_^",
+    "not_start": "Haven't Started Exercising",
     "skip": "SKIP",
     "next": "NEXT",
     "pause": "PAUSE",
     "resume": "RESUME",
-    "finish": "Great, You Have Completed The Challenge\n^_^",
-    "wait": "Please Return To The Training Page\n^_^",
-    "open_app": "Please Open Home Workout APP On The Phone\n^_^"
+    "finish": "Great, You Have Completed The Challenge",
+    "wait": "Please Return To The Training Page",
+    "open_app": "Please Open Home Workout APP On The Phone",
+    "download_app": "Please Scan To Download Mobile APP And Enable Ability In APP Setting"
   }
 }
