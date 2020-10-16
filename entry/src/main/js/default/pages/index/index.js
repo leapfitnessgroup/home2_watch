@@ -2,6 +2,7 @@ import router from '@system.router';
 import brightness from '@system.brightness';
 import app from '@system.app';
 import {P2pClient, Message, Builder} from "../wearengine"
+import vibrator from '@system.vibrator'
 
 export default{
     data: {
@@ -36,6 +37,11 @@ export default{
             _this.setBrightnessKeepScreenOn();
         },3 * 60 * 1000);
     },
+    onHide: function () {
+         this.stopFlg = true;
+         this.tabIndex = 1;
+         this.sendMsg({'eventFlg':'15',})
+    },
     onDestroy: function() {
         FeatureAbility.unsubscribeMsg();
     },
@@ -61,6 +67,9 @@ export default{
                     if('time' in json){
                         self.time = parseInt(json.time);
                         self.totalTime = parseInt(json.totalTime);
+                        if (self.time === 1 && self.text === 'pause') {
+                            self.callVibrate();
+                        }
                         self.process = (1.0 - (self.time - 1) / self.totalTime) * 100;
                         self.timeText = self.convertedTime(self.time);
                         self.showCycleFun(self);
@@ -145,8 +154,22 @@ export default{
     clickButton: function(){
         if(this.text === 'resume' || this.text === 'pause' || this.text === 'skip' || this.text === 'next'){
             this.sendMsg();
+            if (this.text === 'next') {
+                this.callVibrate()
+            }
         }
         this.setBrightnessKeepScreenOn();
+    },
+    callVibrate: function () {
+        vibrator.vibrate({
+            mode: "short",
+            success() {
+                console.log("success to vibrate");
+            },
+            fail(data, code) {
+                console.log(`handle fail, data = ${data}, code = ${code}`);
+            }
+        });
     },
     sendMsg: function(){
         let self = this;
