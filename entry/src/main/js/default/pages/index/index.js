@@ -37,11 +37,11 @@ export default{
             _this.setBrightnessKeepScreenOn();
         },3 * 60 * 1000);
     },
-    onHide: function () {
-         this.stopFlg = true;
-         this.tabIndex = 1;
-         this.sendMsg({'eventFlg':'15',})
-    },
+//    onHide: function () {
+//         this.stopFlg = true;
+//         this.tabIndex = 1;
+//         this.sendMsg({'eventFlg':'15',})
+//    },
     onDestroy: function() {
         FeatureAbility.unsubscribeMsg();
     },
