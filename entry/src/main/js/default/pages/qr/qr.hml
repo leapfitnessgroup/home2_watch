@@ -1,0 +1,4 @@
+<div class="container" onswipe = "touchMove">
+    <image class="SOFImg" src="/common/home2QR.png" />
+    <text class="SOFText" >{{$t('strings.download_app')}}</text>
+</div>

@@ -1,16 +1,14 @@
+.div {
+  width: 454px;
+  height: 454px;
+}
 .container {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  left: 0px;
-  top: 0px;
-  width: 454px;
-  height: 454px;
-}
-.div {
-  width: 454px;
-  height: 454px;
+  width: 454;
+  height: 454;
 }
 .stack {
   justify-content: center;
@@ -47,20 +45,16 @@
   font-size: 38px;
 }
 .fullText {
-  width: 300;
-  height: 250;
+  width: 354;
+  padding-top:154;
+  padding-left:80;
+  align-items: center;
   justify-content: center;
   text-align: center;
   font-size: 38px;
 }
-.SCText {
-  width: 300;
-  text-align: center;
-}
-.imgSC {
-  width:200;
-  height:200;
-  margin-top:40;
-  margin-bottom:20;
+.image {
+  width:454;
+  height:454;
 }
 

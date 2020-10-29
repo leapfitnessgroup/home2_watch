@@ -1,0 +1,18 @@
+<div class="container" onswipe = "touchMove" onclick="onclick">
+    <image class="SOFImg" src="/common/complete.png" />
+    <text class="SOFText" >{{$t('strings.complete')}}</text>
+    <div class="bottomText">
+        <div class="texts">
+            <text class="text">{{exerciseTimes}}</text>
+            <text class="text">{{$t('strings.times')}}</text>
+        </div>
+        <div class="texts"style="width:120 left:5">
+            <text class="text">{{exerciseKcal}}</text>
+            <text class="text">{{$t('strings.kcal')}}</text>
+        </div>
+        <div class="texts">
+            <text class="text">{{exerciseDuration}}</text>
+            <text class="text">{{$t('strings.duration')}}</text>
+        </div>
+    </div>
+</div>

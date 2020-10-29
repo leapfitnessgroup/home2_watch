@@ -41,7 +41,9 @@
     "js": [
       {
         "pages": [
-          "pages/index/index"
+          "pages/index/index",
+          "pages/qr/qr",
+          "pages/finish/finish"
         ],
         "name": "default"
       }

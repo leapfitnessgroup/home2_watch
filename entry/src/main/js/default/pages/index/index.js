@@ -13,17 +13,14 @@ export default{
         process: 0,
         text: '',
         buttonText: '',
-        notStartText: '',
+        openText: '',
+        showTextAndImg: false,
+        showTotalAndButton: false,
         showCycle: false,
         showTimes: false,
-        showTotal: false,
-        showText: true,
-        showSC: false,
-        hideSC: false,
     },
     onInit: function () {
         this.ping(this);
-        this.notStartText = this.$t('strings.open_app');
         this.getMsg();
     },
     onReady: function() {
@@ -42,9 +39,6 @@ export default{
 //         this.tabIndex = 1;
 //         this.sendMsg({'eventFlg':'15',})
 //    },
-    onDestroy: function() {
-        FeatureAbility.unsubscribeMsg();
-    },
     setBrightnessKeepScreenOn: function() {
         brightness.setKeepScreenOn({
             keepScreenOn: true,
@@ -60,11 +54,15 @@ export default{
         FeatureAbility.subscribeMsg({
             success: function(data) {
                 if(JSON.stringify(data.message) !== undefined){
-                    self.showScanCodePage(self, false);
                     self.showTotalFun(self);
 
                     var json = JSON.parse(data.message);
-                    if('time' in json){
+                    if ('msg' in json) {
+                        self.text = json.msg;
+                        self.buttonText = self.changeTextFun(self);
+                        console.log('getmsg success text: ' + self.text);
+                    }
+                    if ('time' in json) {
                         self.time = parseInt(json.time);
                         self.totalTime = parseInt(json.totalTime);
                         if (self.time === 1 && self.text === 'pause') {
@@ -74,13 +72,10 @@ export default{
                         self.timeText = self.convertedTime(self.time);
                         self.showCycleFun(self);
                         console.log('getmsg success time: ' + self.time + '|' + self.totalTime + '|' + self.process);
-                    }else if ('totalTime' in json){
+                    } else if ('totalTime' in json){
                         self.times = 'x' + json.totalTime;
                         self.showTimesFun(self);
-                    }else if ('msg' in json){
-                        self.text = json.msg;
-                        self.buttonText = self.changeTextFun(self);
-                        console.log('getmsg success text: ' + self.text);
+                        console.log('getmsg success times: ' + self.times);
                     }
 
                     self.showTextFun(self);
@@ -97,9 +92,9 @@ export default{
         });
     },
     showTotalFun: function(self){
-        if(self.showTotal === false){
-            self.showTotal = true;
-            self.showText = false;
+        if(self.showTotalAndButton === false){
+            self.showTotalAndButton === true;
+            self.showTextAndImg = false;
         }
     },
     showCycleFun: function(self){
@@ -116,31 +111,11 @@ export default{
     },
     showTextFun: function(self){
         if(self.text === 'finish'){
-            self.notStartText = self.$t('strings.finish');
-            if(self.showTotal === true && self.showText === false){
-                self.showCycle = false;
-                self.showTimes = false;
-                self.showTotal = false;
-                self.showText = true;
-            }
+            self.goFinishPage();
         }
         if (self.text === 'wait') {
-            self.notStartText = self.$t('strings.wait');
-            if(self.showTotal === true && self.showText === false){
-                self.showCycle = false;
-                self.showTimes = false;
-                self.showTotal = false;
-                self.showText = true;
-            }
-        }
-        if (self.text === 'open') {
-            self.notStartText = self.$t('strings.not_start');
-            if(self.showTotal === true && self.showText === false){
-                self.showCycle = false;
-                self.showTimes = false;
-                self.showTotal = false;
-                self.showText = true;
-            }
+            self.openText = self.$t('strings.wait');
+            self.showTextAndImg = true;
         }
     },
     changeTextFun: function(self){
@@ -208,6 +183,7 @@ export default{
         }
     },
     ping: function (self) {
+        self.showTextAndImg = true;
 
         // 步骤1：创建点对点通信对象
         var p2pClient = new P2pClient();
@@ -221,11 +197,17 @@ export default{
         // 步骤3：检测手机侧对应的第三方应用是否在线
         p2pClient.ping({
             onSuccess: function() {
-                self.showScanCodePage(self, false);
+                var interval = setInterval(function () {
+                    self.showOpenText(self);
+                    clearInterval(interval);
+                },1001);
                 console.log('ping success');
             },
             onFailure: function() {
-                self.showScanCodePage(self, true);
+                var interval = setInterval(function () {
+                    self.goQRPage();
+                    clearInterval(interval);
+                },1000);
                 console.log('ping failed');
             },
             onPingResult: function(resultCode) {
@@ -233,8 +215,19 @@ export default{
             },
         });
     },
-    showScanCodePage: function (self, show) {
-        self.showSC = show;
-        self.hideSC = !show;
+    goQRPage: function () {
+        router.replace({
+            uri: "pages/qr/qr",
+        });
+    },
+    goFinishPage: function () {
+        router.replace({
+            uri: "pages/finish/finish",
+        });
+    },
+    showOpenText: function (self) {
+        if (self.text === '') {
+            self.openText = self.$t('strings.open_app');
+        }
     }
 }
