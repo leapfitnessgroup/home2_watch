@@ -28,12 +28,12 @@
     justify-content: center;
 }
 .texts {
-    width: 140;
+    width: 160;
     height: 100;
     flex-direction: column;
 }
 .text {
-    width: 140;
+    width: 160;
     height: 50;
     font-size: 30px;
     text-align: center;

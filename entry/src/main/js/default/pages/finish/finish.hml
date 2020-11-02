@@ -6,9 +6,9 @@
             <text class="text">{{exerciseTimes}}</text>
             <text class="text">{{$t('strings.times')}}</text>
         </div>
-        <div class="texts"style="width:120 left:5">
-            <text class="text">{{exerciseKcal}}</text>
-            <text class="text">{{$t('strings.kcal')}}</text>
+        <div class="texts"style="width:100">
+            <text class="text" style="width:100">{{exerciseKcal}}</text>
+            <text class="text" style="width:100">{{$t('strings.kcal')}}</text>
         </div>
         <div class="texts">
             <text class="text">{{exerciseDuration}}</text>

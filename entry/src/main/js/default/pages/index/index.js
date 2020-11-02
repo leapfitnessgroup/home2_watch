@@ -152,7 +152,7 @@ export default{
         FeatureAbility.sendMsg({
             deviceId : 'remote',
             bundleName: 'homeworkout.homeworkouts.noequipment',
-            abilityName: 'homeworkout.homeworkouts.noequipment',
+            abilityName: '',
             message: self.text,
             success: function(data) {
                 console.info('success sendMsg');
@@ -197,17 +197,11 @@ export default{
         // 步骤3：检测手机侧对应的第三方应用是否在线
         p2pClient.ping({
             onSuccess: function() {
-                var interval = setInterval(function () {
-                    self.showOpenText(self);
-                    clearInterval(interval);
-                },1001);
+                setTimeout(function () {self.showOpenText(self);},1001);
                 console.log('ping success');
             },
             onFailure: function() {
-                var interval = setInterval(function () {
-                    self.goQRPage();
-                    clearInterval(interval);
-                },1000);
+                setTimeout(function () {self.goQRPage();},1000);
                 console.log('ping failed');
             },
             onPingResult: function(resultCode) {
