@@ -54,9 +54,13 @@ export default{
         FeatureAbility.subscribeMsg({
             success: function(data) {
                 if(JSON.stringify(data.message) !== undefined){
+                    var json = JSON.parse(data.message);
+                    if ('msg' in json && json.msg === 'start') {
+                        return;
+                    }
                     self.showTotalFun(self);
 
-                    var json = JSON.parse(data.message);
+
                     if ('msg' in json) {
                         self.text = json.msg;
                         self.buttonText = self.changeTextFun(self);
