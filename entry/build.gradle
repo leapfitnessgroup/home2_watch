@@ -2,22 +2,22 @@ apply plugin: 'com.huawei.ohos.hap'
 ohos {
     signingConfigs {
         debug {
-            certpath file('E:/cers-3/home2/home2.watch.hwDEBUG.cer')
-            profile file('E:/cers-3/home2/home2.watch.hwDEBUGDebug.p7b')
+            certpath file('E:/cers-3/home2/home2_hw_watch_Debug.cer')
+            profile file('E:/cers-3/home2/home2_hw_watch_Debug.p7b')
             signAlg 'SHA256withECDSA'
-            keyPassword '000000171406AB64F644D34D5BEB696D0F08E8D8D9F5C1B018340203709B925E283A007BD1F383'
-            keyAlias 'home2.watch.hw'
-            storePassword '000000174C94F96A9887DDDFAD5264FE84956C3C6B54937CEA862ABFDD7C29D65E1450678C4EC3'
-            storeFile file('E:/cers-3/home2/home2.p12')
+            keyPassword '0000001C0712B0E32CAD2F64C33D7CBFBD54D4C791F2EC4CE3C250085364AE2EEB43AF61AF80CB1BAF2679D7'
+            keyAlias 'home2_hw'
+            storePassword '0000001CFD49BEE9BBA033C16E60435CB345BA8C0D109B8C81A4F43305B632A9BAD0CF3D73943F2DB8006093'
+            storeFile file('E:/cers-3/home2/home2_hw_watch.p12')
         }
         release {
-            certpath file('E:/cers-3/home2/home2.watch.hw.cer')
-            profile file('E:/cers-3/home2/home2.watch.hwRelease.p7b')
+            certpath file('E:/cers-3/home2/home2_hw_watch_Release.cer')
+            profile file('E:/cers-3/home2/home2_hw_watch_Release.p7b')
             signAlg 'SHA256withECDSA'
-            keyPassword '000000177162346E623CE2E1BD78F594F12BE3AA79EDDFF6B7054DBE1D4381575DA2EE5C019EC9'
-            keyAlias 'home2.watch.hw'
-            storePassword '00000017D6BAE4A05B2FEFC6B434E8811990E19728447DC10626095642678A0967BB0C8DC8467D'
-            storeFile file('E:/cers-3/home2/home2.p12')
+            keyPassword '0000001C3DEB3D20CA24E8FF163E606123FD9D84E5F22E5B31DA6904D7751D6C4FF8E18FAC0160E31211348A'
+            keyAlias 'home2_hw'
+            storePassword '0000001CC1BE22079C366BBE329B56CC2A5ACCF5AF25B0081307F6B1334AA019045CD03297CDD7D8BE3BB020'
+            storeFile file('E:/cers-3/home2/home2_hw_watch.p12')
         }
     }
     compileSdkVersion 3

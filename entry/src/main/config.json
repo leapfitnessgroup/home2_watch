@@ -3,8 +3,8 @@
     "vendor": "watch",
     "bundleName": "home2.watch.hw",
     "version": {
-      "code": 3,
-      "name": "3.0"
+      "code": 4,
+      "name": "4.0"
     },
     "apiVersion": {
       "compatible": 3,

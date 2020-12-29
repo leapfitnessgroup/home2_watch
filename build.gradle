@@ -4,13 +4,13 @@ apply plugin: 'com.huawei.ohos.app'
 ohos {
     signingConfigs {
         release {
-            certpath file('E:/cers-3/home2/home2.watch.hw.cer')
-            profile file('E:/cers-3/home2/home2.watch.hwRelease.p7b')
+            certpath file('E:/cers-3/home2/home2_hw_watch_Release.cer')
+            profile file('E:/cers-3/home2/home2_hw_watch_Release.p7b')
             signAlg 'SHA256withECDSA'
-            keyPassword '000000173B8039C435C1544FE05126F932BC3E4AAD3A9C5D6CF7CA11B03198F54EF0E40DAEC222'
-            keyAlias 'home2.watch.hw'
-            storePassword '000000172827078A38370CDAEF4DDF197B517CD94CD18861A4A88DF0B8C50F8DC1602B9A2E04DB'
-            storeFile file('E:/cers-3/home2/home2.p12')
+            keyPassword '0000001C3DEB3D20CA24E8FF163E606123FD9D84E5F22E5B31DA6904D7751D6C4FF8E18FAC0160E31211348A'
+            keyAlias 'home2_hw'
+            storePassword '0000001CC1BE22079C366BBE329B56CC2A5ACCF5AF25B0081307F6B1334AA019045CD03297CDD7D8BE3BB020'
+            storeFile file('E:/cers-3/home2/home2_hw_watch.p12')
         }
     }
     compileSdkVersion 3

@@ -192,11 +192,9 @@ export default{
         // 步骤1：创建点对点通信对象
         var p2pClient = new P2pClient();
         var peerPkgName = 'homeworkout.homeworkouts.noequipment';
-        var peerFinger = '46F848490B6171ECDC15946E999D2A66EC1F410A2DC955E00D9A5552221DAD0B';
 
         // 步骤2：设置需要通信的手机侧对应的三方应用包名
         p2pClient.setPeerPkgName(peerPkgName);
-        p2pClient.setPeerFingerPrint(peerFinger);
 
         // 步骤3：检测手机侧对应的第三方应用是否在线
         p2pClient.ping({
